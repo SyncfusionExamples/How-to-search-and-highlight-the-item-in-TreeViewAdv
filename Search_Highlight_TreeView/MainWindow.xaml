@@ -1,0 +1,43 @@
+﻿<Window x:Class="Search_Highlight_TreeView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Search_Highlight_TreeView"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Search and Highlight in TreeViewAdv" Height="400" Width="782">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../SearchControl/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <syncfusion:TreeViewAdv x:Name="treeViewAdv" HorizontalAlignment="Center"   FontSize="13"                               
+                  ItemsSource="{Binding TreeItems}" IsSelectOnRightMouseClick="{Binding IsSelectOnRightMouseClick, Mode=TwoWay}"
+                  VisualStyle="Metro" MinWidth="130" MinHeight="300" >
+            <syncfusion:TreeViewAdv.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                            <TextBlock Text="{Binding Header}" />
+                        </HierarchicalDataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                    <TextBlock Text="{Binding Header}" />
+                </HierarchicalDataTemplate>
+            </syncfusion:TreeViewAdv.ItemTemplate>
+        </syncfusion:TreeViewAdv>
+        <local:SearchControl Margin="5,0,5,5"  x:Name="searchControl" Grid.Column="1"  FontSize="13"    
+                                         Visibility="Visible" Height="400"
+                                         VerticalAlignment="Top" 
+                                         Treeview="{Binding ElementName=treeViewAdv}"
+                                         HorizontalAlignment="Right"/>
+    </Grid>
+</Window>
