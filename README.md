@@ -11,8 +11,8 @@ To search and highlight the item in `TreeViewAdv`, Search method has been implem
 ``` c#
 if (mainitem != null && MatchSearchText(model.Header))
 {
-  //Function which is used to apply inline to the TextBlock
-  ApplyInline(mainitem, false);                      
+    //Function which is used to apply inline to the TextBlock
+    ApplyInline(mainitem, false);                      
 }
 ```
 
@@ -20,27 +20,27 @@ Options like Search, FindPrevious, Find Next, SearchType (Contains, EndsWith, St
 
 ``` c#
 if (!string.IsNullOrEmpty(tempSearchText))
-            {
-                if (this.SearchType == SearchType.StartsWith)
-                {
-                    if (!(bool)CaseSensitiveSearchCheckBox.IsChecked)
-                        regex = new Regex("^(" + tempSearchText + ")", RegexOptions.IgnoreCase);
-                    else
-                        regex = new Regex("^(" + tempSearchText + ")", RegexOptions.None);
-                }
-                else if (this.SearchType == SearchType.EndsWith)
-                {
-                    if (!(bool)CaseSensitiveSearchCheckBox.IsChecked)
-                        regex = new Regex("(" + tempSearchText + ")$", RegexOptions.IgnoreCase);
-                    else
-                        regex = new Regex("(" + tempSearchText + ")$", RegexOptions.None);
-                }
-                else
-                {
-                    if (!(bool)CaseSensitiveSearchCheckBox.IsChecked)
-                        regex = new Regex("(" + tempSearchText + ")", RegexOptions.IgnoreCase);
-                    else
-                        regex = new Regex("(" + tempSearchText + ")", RegexOptions.None);
-                }   
+{
+    if (this.SearchType == SearchType.StartsWith)
+    {
+        if (!(bool)CaseSensitiveSearchCheckBox.IsChecked)
+            regex = new Regex("^(" + tempSearchText + ")", RegexOptions.IgnoreCase);
+        else
+            regex = new Regex("^(" + tempSearchText + ")", RegexOptions.None);
+    }
+    else if (this.SearchType == SearchType.EndsWith)
+    {
+        if (!(bool)CaseSensitiveSearchCheckBox.IsChecked)
+            regex = new Regex("(" + tempSearchText + ")$", RegexOptions.IgnoreCase);
+        else
+            regex = new Regex("(" + tempSearchText + ")$", RegexOptions.None);
+    }
+    else
+    {
+        if (!(bool)CaseSensitiveSearchCheckBox.IsChecked)
+            regex = new Regex("(" + tempSearchText + ")", RegexOptions.IgnoreCase);
+        else
+            regex = new Regex("(" + tempSearchText + ")", RegexOptions.None);
+    }   
 }
 ```
