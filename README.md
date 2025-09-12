@@ -38,3 +38,4 @@ if (!string.IsNullOrEmpty(tempSearchText))
     }   
 }
 ```
+![Search and highlight item](SearchandHighlight.png)
