@@ -38,4 +38,7 @@ if (!string.IsNullOrEmpty(tempSearchText))
     }   
 }
 ```
+
+The following screenshot illustrates how to highlight and perform search in TreeViewAdv.
+
 ![Search and highlight item](SearchandHighlight.png)
